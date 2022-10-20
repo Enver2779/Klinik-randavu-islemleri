@@ -1,0 +1,29 @@
+﻿@model RandevuSistemi.Models.Sinif.Hasta
+@{
+    ViewBag.Title = "HastaEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<form class="form-group" action="/Hasta/HastaEkle" method="post">
+    @Html.Label("TC:")
+    @Html.TextBoxFor(x => x.HastaTc, new { @class = "form-control" })
+    <br />
+    @Html.Label("Ad:")
+    @Html.TextBoxFor(x => x.HastaName, new { @class = "form-control" })
+    <br />@Html.Label("Soyad:")
+    @Html.TextBoxFor(x => x.HastaSurName, new { @class = "form-control" })
+    <br />@Html.Label("Telefon:")
+    @Html.TextBoxFor(x => x.HastaTelefon, new { @class = "form-control" })
+    <br />@Html.Label("Doğum Tarihi:")
+    @Html.TextBoxFor(x => x.HastaDogumT, new { @class = "form-control" })
+    <br />@Html.Label("Kan Grubu:")
+    @Html.TextBoxFor(x => x.KanGb, new { @class = "form-control" })
+    <br />@Html.Label("Açıklama:")
+    @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+    <br />
+    @*@Html.Label("Görsel:")
+        @Html.TextBoxFor(x => x.HastaFoto, new { @class = "form-control" })
+        <br />*@
+
+    <button class="btn btn-info"><i class="fa fa-plus"></i> Ekle</button>
+</form>

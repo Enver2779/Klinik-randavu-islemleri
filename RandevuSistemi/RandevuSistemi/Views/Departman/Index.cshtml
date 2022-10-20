@@ -1,0 +1,49 @@
+﻿@using RandevuSistemi.Models.Sinif
+@model List<Departman>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<h2 style="margin-top:20px">Departmanlar</h2>
+
+
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr style="background-color: rgb(105,105,105)">
+            <th>Departman Adı</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Detaylar</th>
+        </tr>
+    </thead>
+
+    @foreach (var m in Model)
+    {
+        <tr>
+
+            <td>@m.DepartmanAd</td>
+            <td>
+                <a href="/Departman/DepartmanSil/@m.DepartmanId" class="btn btn-danger"><i class="fa fa-trash"></i> Sil</a>
+            </td>
+            <td>
+                <a href="/Departman/DepartmanGetir/@m.DepartmanId" class="btn btn-warning"><i class="fa fa-undo"></i> Güncelle</a>
+            </td>
+            <td>
+                <a href="/Departman/DepartmanDetay/@m.DepartmanId" class="btn btn-secondary"> Detay</a>
+            </td>
+        </tr>
+    }
+</table>
+<br />
+<br />
+<a href="/Departman/DepartmanEkle" class="btn btn-primary"><i class="fa fa-plus"></i> Departman Ekle</a>
+
+<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+
+<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+
+<script>$('#tbl1').dataTable({});</script>

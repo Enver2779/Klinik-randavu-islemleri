@@ -1,0 +1,22 @@
+﻿@model RandevuSistemi.Models.Sinif.Departman
+@{
+    ViewBag.Title = "DepartmanEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Departman Ekleme Sayfası</h2>
+<br />
+
+<form class="form-group" action="/Departman/DepartmanEkle" method="post">
+    <div class="form-group">
+        <label>Departman Adı:</label>
+        <input type="text" class="form-control" name="DepartmanAd" />
+    </div>
+
+    <div class="form-row">
+        <button class="btn btn-info"><i class="fa fa-plus"></i> Ekle</button>
+    </div>
+
+</form>
+

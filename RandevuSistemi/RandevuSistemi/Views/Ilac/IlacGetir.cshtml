@@ -1,0 +1,67 @@
+﻿@model RandevuSistemi.Models.Sinif.Ilac
+@{
+    ViewBag.Title = "IlacGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>İlaç Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("IlacGuncelle", "Ilac", FormMethod.Post))
+{
+
+   
+        <div class="form-group">
+            @Html.Label("Ilac Adı:")
+            @Html.TextBoxFor(x => x.IlacAd, new { @class = "form-control" })
+            @Html.HiddenFor(x => x.IlacId)
+        </div>
+
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @Html.Label("Parti no:")
+            @Html.TextBoxFor(x => x.PartiNo, new { @class = "form-control" })
+        </div>
+        <div class="form-group col-md-6">
+            @Html.Label("Ruhsat No:")
+            @Html.TextBoxFor(x => x.RuhsatNo, new { @class = "form-control" })
+        </div>
+
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @Html.Label("Son Kullanma Tarih :")
+            @Html.TextBoxFor(x => x.SonKullanmaTarih, new { @class = "form-control" })
+        </div>
+        <div class="form-group col-md-6">
+            @Html.Label("Stok :")
+            @Html.TextBoxFor(x => x.Stok, new { @class = "form-control" })
+        </div>
+    </div>
+    @*<div class="form-row">
+            <div class="form-group col-md-6">
+                @Html.Label("Ruhsat No:")
+                @Html.TextBoxFor(x => x.RuhsatNo, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-md-6">
+                @Html.Label("Fotograf:")
+                @Html.TextBoxFor(x => x.IlacFoto, new { @class = "form-control" })
+            </div>
+        </div>*@
+    <div class="form-group">
+        @Html.Label("IlaçKub :")
+        @Html.TextBoxFor(x => x.IlacKUB, new { @class = "form-control" })
+
+    </div>
+    <div class="form-group ">
+        @Html.Label("IlacKT :")
+        @Html.TextBoxFor(x => x.IlacKT, new { @class = "form-control" })
+    </div>
+    <div class="form-row">
+        <button class="btn btn-info"><i class="fa fa-undo"></i> Güncelle</button>
+    </div>
+}
+
+
+

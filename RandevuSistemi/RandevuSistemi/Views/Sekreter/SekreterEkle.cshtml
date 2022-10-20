@@ -1,0 +1,28 @@
+﻿@model RandevuSistemi.Models.Sinif.Sekreter
+@{
+    ViewBag.Title = "SekreterEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Sekreter Ekle</h2>
+
+<br />
+
+<form class="form-group" action="/Sekreter/SekreterEkle" method="post">
+
+    @Html.Label("Ad:")
+    @Html.TextBoxFor(x => x.SekreterAdi, new { @class = "form-control" })
+    <br />
+    @Html.Label("Soyad:")
+    @Html.TextBoxFor(x => x.SekreterSoyadi, new { @class = "form-control" })
+    <br />
+    @Html.Label("Maili:")
+    @Html.TextBoxFor(x => x.SekreterMaili, new { @class = "form-control" })
+    <br />
+    @Html.Label("Şifresi:")
+    @Html.TextBoxFor(x => x.SekreterSifresi, new { @class = "form-control" })
+    <br />
+
+    <button class="btn btn-info"><i class="fa fa-plus"></i> Ekle</button>
+</form>
+

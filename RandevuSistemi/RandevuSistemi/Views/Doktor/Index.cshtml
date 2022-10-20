@@ -1,0 +1,68 @@
+﻿@using RandevuSistemi.Models.Sinif
+@model List<Doktor>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<table id="tbl1" class="table table-bordered" style="margin-top:20px;">
+    <thead>
+        <tr style="background-color: rgb(0,128,0)">
+
+            <th>Doktor Tc</th>
+            <th>Doktor Adı Soyadı</th>
+            <th>Departmanı</th>
+            <th>Telefon</th>
+            <th>Mail </th>
+           
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+            @*<th>DETAYLAR</th>*@
+        </tr>
+    </thead>
+    @foreach (var x in Model)
+    {
+<tr>
+    @*<td>@x.IlacId</td>*@
+    <td>@x.DoktorTC</td>
+
+    <td>@x.DoktorAd @x.DoktorSoyad</td>
+
+    <td>@x.Departmen.DepartmanAd</td>
+    <td>@x.DoktorTelefon</td>
+    <td>@x.Mail</td>
+
+    <td>
+        <a href="/Doktor/DoktorSil/@x.DoktorId" class="btn btn-danger"><i class="fa fa-trash"></i> Sil</a>
+    </td>
+
+    @*<td><a href="/Satis/SatisDetay/@x.IlacId" class="btn btn-group" style="background-color:lightcoral">Detaylar</a></td>*@
+    <td>
+        <a href="/Doktor/DoktorGetir/@x.DoktorId" class="btn btn-warning"><i class="fa fa-undo"></i> Güncelle</a>
+    </td>
+</tr>
+    }
+</table>
+<a href="/Doktor/DoktorEkle/" class="btn btn-primary">Doktor Ekle</a>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+
+<script>
+    $('#tbl1').dataTable({
+        language: {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+        }
+    });
+</script>
+
+
+

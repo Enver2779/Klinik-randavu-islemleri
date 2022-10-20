@@ -1,0 +1,45 @@
+﻿@model RandevuSistemi.Models.Sinif.Sekreter
+
+@{
+    ViewBag.Title = "SekreterGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>Sekreter Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("SekreterGuncelle", "Sekreter", FormMethod.Post))
+{
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @Html.Label("Adı :")
+            @Html.TextBoxFor(x => x.SekreterAdi, new { @class = "form-control" })
+            @Html.HiddenFor(x => x.SekreterID)
+        </div>
+        <div class="form-group col-md-6">
+            @Html.Label("SoyAdı:")
+            @Html.TextBoxFor(x => x.SekreterSoyadi, new { @class = "form-control" })
+        </div>
+    </div>
+ 
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @Html.Label("Mail :")
+            @Html.TextBoxFor(x => x.SekreterMaili, new { @class = "form-control" })
+        </div>
+        <div class="form-group col-md-6">
+            @Html.Label("Şifre:")
+            @Html.TextBoxFor(x => x.SekreterSifresi, new { @class = "form-control" })
+        </div>
+
+    </div>
+   
+
+    <div class="form-row">
+        <button class="btn btn-info"><i class="fa fa-undo"></i> Güncelle</button>
+    </div>
+}
+
+
+

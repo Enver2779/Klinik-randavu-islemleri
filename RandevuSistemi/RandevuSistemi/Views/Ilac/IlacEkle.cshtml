@@ -1,0 +1,52 @@
+﻿@model RandevuSistemi.Models.Sinif.Ilac
+
+@{
+    ViewBag.Title = "IlacEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<h2>İlaç Ekleme Sayfası</h2>
+<br />
+
+<form class="form-group" action="/Ilac/IlacEkle" method="post">
+    <div class="form-group">
+        <label>İlaç Adı:</label>
+        <input type="text" class="form-control" name="IlacAd" />
+    </div>
+    <div class="form-group">
+        <label>Parti No:</label>
+        <input type="text" class="form-control" name="PartiNo" />
+    </div>
+    <div class="form-group">
+        <label>Açıklama KT:</label>
+        <input type="text" class="form-control" name="IlacKT" />
+    </div>
+    <div class="form-group">
+        <label>Açıklama  KUB:</label>
+        <input type="text" class="form-control" name="IlacKUB" />
+    </div>
+    <div class="form-group">
+        <label>Son kullanma Tarihini</label>
+        <input type="text" class="form-control" name="SonKullanmaTarih" />
+    </div>
+    <div class="form-group">
+        <label>Stok:</label>
+        <input type="text" class="form-control" name="Stok" />
+    </div>
+    <div class="form-group">
+        <label>Ruhsat No:</label>
+        <input type="text" class="form-control" name="RuhsatNo" />
+    </div>
+    <div class="form-group">
+        <label>Fotograf:</label>
+        <input type="text" class="form-control" name="IlacFoto" />
+    </div>
+
+    <div class="form-row">
+        <button class="btn btn-info"><i class="fa fa-plus"></i> Ekle</button>
+    </div>
+
+</form>
+
+

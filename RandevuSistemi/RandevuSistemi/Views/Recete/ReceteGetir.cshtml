@@ -1,0 +1,36 @@
+﻿@model RandevuSistemi.Models.Sinif.Recete
+@{
+    ViewBag.Title = "ReceteGetir";
+    Layout = "~/Views/Shared/_DoktorLayout.cshtml";
+}
+
+<br />
+<h2>Recete İşlemi Güncelleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("ReceteGuncelle", "Recete", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.HiddenFor(x => x.ReceteId)
+        <label>Ürün Adını Giriniz!</label>
+        @Html.DropDownListFor(x => x.IlacId, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+        <br />
+        <label>Ürün Alıcısını Giriniz!</label>
+        @Html.DropDownListFor(x => x.HastaId, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+        <br />
+        <label>Ürünü Satan Personeli Giriniz!</label>
+        @Html.DropDownListFor(x => x.DoktorId, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control" })
+        <br />
+        <label>Ürün Adetini Giriniz!</label>
+        @Html.TextBoxFor(x => x.ProtokolNo, new { @class = "form-control" })
+        <br />
+        <label>Ürün Satış Fiyatını Giriniz!</label>
+        @Html.TextBoxFor(x => x.Tanı, new { @class = "form-control" })
+        <br />
+        <label>Toplam Tutarı Giriniz!</label>
+        @Html.TextBoxFor(x => x.Aciklama, new { @class = "form-control" })
+        <br />
+        <label>Tarih Değeri Giriniz!</label>
+        @Html.TextBoxFor(x => x.Tarih, new { @class = "form-control" })
+    </div>
+    <button class="btn btn-outline-warning">Recete Güncelle</button>
+}

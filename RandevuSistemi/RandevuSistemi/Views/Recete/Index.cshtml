@@ -1,0 +1,62 @@
+﻿@using RandevuSistemi.Models.Sinif
+@model List<Recete>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_DoktorLayout.cshtml";
+}
+
+
+
+<h2 style="margin-top:20px">Reçete</h2>
+
+
+<table id="tbl1" class="table table-bordered">
+    <thead>
+        <tr style="background-color: rgb(255,0,0) ">
+            <th>Protokol No </th>
+            <th> Tanı </th>
+            <th> Tarih </th>
+            <th> Açıklama </th>
+            <th> Doktor Ad Soyad </th>
+            <th> Hasta Ad Soyad ve Tc </th>
+            <th> Ilac Ad </th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+            <th>Detaylar</th>
+        </tr>
+    </thead>
+
+    @foreach (var m in Model)
+    {
+        <tr>
+
+            <td>@m.ProtokolNo</td>
+            <td>@m.Tanı</td>
+            <td>@m.Tarih</td>
+            <td>@m.Aciklama</td>
+            <td>@m.Doktor.DoktorAd @m.Doktor.DoktorSoyad </td>
+            <td>@m.Hasta.HastaName @m.Hasta.HastaSurName @m.Hasta.HastaTc</td>
+            <td>@m.Ilac.IlacAd</td>
+            <td>
+                <a href="/Recete/ReceteSil/@m.ReceteId" class="btn btn-danger"><i class="fa fa-trash"></i> Sil</a>
+            </td>
+            <td>
+                <a href="/Recete/ReceteGetir/@m.ReceteId" class="btn btn-warning"><i class="fa fa-undo"></i> Güncelle</a>
+            </td>
+            <td>
+                <a href="/Recete/ReceteDetay/@m.ReceteId" class="btn btn-secondary"> Detay</a>
+            </td>
+        </tr>
+    }
+</table>
+<br />
+<br />
+<a href="/Recete/YeniRecete" class="btn btn-primary"><i class="fa fa-plus"></i> Recete Ekle</a>
+
+<link rel="stylesheet" type="text/css" href="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/css/jquery.dataTables.css">
+
+<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jquery.dataTables/1.9.4/jquery.dataTables.min.js"></script>
+
+<script>$('#tbl1').dataTable({});</script>

@@ -1,0 +1,62 @@
+﻿@using RandevuSistemi.Models.Sinif
+@model List<Sekreter>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<br />
+<table id="tbl1" class="table table-bordered" style="margin-top:20px;">
+    <thead>
+        <tr style="background-color: rgb(186,85,211)">
+
+            <th>Sekreter Adı</th>
+            <th>Sekreter Soyadı</th>
+            <th>SekreterMaili</th>
+       
+            <th>SİL</th>
+            <th>GÜNCELLE</th>
+            @*<th>DETAYLAR</th>*@
+        </tr>
+    </thead>
+    @foreach (var x in Model)
+    {
+        <tr>
+            @*<td>@x.IlacId</td>*@
+            <td>@x.SekreterAdi</td>
+            <td>@x.SekreterSoyadi </td>
+            <td>@x.SekreterMaili</td>
+        
+
+            <td>
+                <a href="/Sekreter/SekreterSil/@x.SekreterID" class="btn btn-danger"><i class="fa fa-trash"></i> Sil</a>
+            </td>
+
+            @*<td><a href="/Satis/SatisDetay/@x.IlacId" class="btn btn-group" style="background-color:lightcoral">Detaylar</a></td>*@
+            <td>
+                <a href="/Sekreter/SekreterGetir/@x.SekreterID" class="btn btn-warning"><i class="fa fa-undo"></i> Güncelle</a>
+            </td>
+        </tr>
+    }
+</table>
+<a href="/Sekreter/SekreterEkle/" class="btn btn-primary">Sekreter Ekle</a>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+
+
+<link href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.datatables.net/responsive/2.1.1/css/responsive.bootstrap.min.css" rel="stylesheet" />
+<script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.15/js/dataTables.bootstrap4.min.js "></script>
+
+
+<script>
+    $('#tbl1').dataTable({
+        language: {
+            "url": "//cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Turkish.json"
+        }
+    });
+</script>
+
+
